@@ -12,10 +12,9 @@ int main(void){
   TCCR0A = 0b00100010; // CTC-mode, OC0A disconnected, clear OC0B on match
   TCCR0B = 0b00000001; // no prescaler
   TCNT0 = 0;           // reset TCNT0
-  
-  /*
-    set OCR0A to 160 -> 20ms pwm time
-    OCR0B for down edge
-   */
+  OCR0A = 160;         // 20ms period time
+  OCR0B = 8;           // 1ms -> 0° (left) position
+  // 12 = center, 16 = right
+
   return 0;
 }
