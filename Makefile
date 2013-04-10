@@ -19,7 +19,9 @@ firmware: main.c
 flash: firmware
         # write firmware
 	avrdude -c $(ISP) -p $(IC) -U flash:w:firmware.hex \
-		-U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
+		-U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m \
+		-P /dev/ttyUSB0
         # verify firmware
 	avrdude -c $(ISP) -p $(IC) -U flash:v:firmware.hex \
-		-U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
+		-U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m \
+		-P /dev/ttyUSB0
