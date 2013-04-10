@@ -1,4 +1,5 @@
-um
-==
+code for a useless machine
+==========================
 
-just a useless machine firmware
+The useless machine uses an Atmel AVR ATtiny25 and a servo.
+Here is the code.
