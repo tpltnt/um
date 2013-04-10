@@ -10,7 +10,8 @@ the value of OCR0A register in CTC-mode.
 
 references
 ----------
-* [Atmel ATtiny24 page](http://www.atmel.com/devices/ATTINY24.aspx)
+* [Atmel ATtiny25 page](http://www.atmel.com/devices/ATTINY25.aspx)
 * Makefile help
     * [makefile template](https://github.com/ithron/AVR-Makefile)
     * [HackDC wiki](http://wiki.hacdc.org/index.php/AVR_Makefile)
+* [AVR Fuse Calculator](http://www.engbedded.com/fusecalc/)
