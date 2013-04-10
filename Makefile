@@ -3,7 +3,8 @@ MCU = attiny25
 # ISP
 ISP = stk500
 # microcontroller chip
-IC =  t24
+IC =  t25
+PORT = /dev/ttyUSB0
 
 # toolchain
 CC = avr-gcc
@@ -20,8 +21,8 @@ flash: firmware
         # write firmware
 	avrdude -c $(ISP) -p $(IC) -U flash:w:firmware.hex \
 		-U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m \
-		-P /dev/ttyUSB0
+		-P $(PORT)
         # verify firmware
 	avrdude -c $(ISP) -p $(IC) -U flash:v:firmware.hex \
 		-U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m \
-		-P /dev/ttyUSB0
+		-P $(PORT)
