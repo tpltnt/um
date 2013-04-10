@@ -6,10 +6,15 @@ ISP = stk500
 IC =  t25
 PORT = /dev/ttyUSB0
 
+
 # toolchain
 CC = avr-gcc
 OBJCOPY = avr-objcopy
 FORMAT = ihex
+
+
+# fuse settings
+FUSES = -U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
 
 
 firmware: main.c
@@ -19,10 +24,6 @@ firmware: main.c
 
 flash: firmware
         # write firmware
-	avrdude -c $(ISP) -p $(IC) -U flash:w:firmware.hex \
-		-U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m \
-		-P $(PORT)
+	avrdude -c $(ISP) -p $(IC) -U flash:w:firmware.hex $(FUSES) -P $(PORT)
         # verify firmware
-	avrdude -c $(ISP) -p $(IC) -U flash:v:firmware.hex \
-		-U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m \
-		-P $(PORT)
+	avrdude -c $(ISP) -p $(IC) -U flash:v:firmware.hex $(FUSES) -P $(PORT)
