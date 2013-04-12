@@ -15,6 +15,6 @@ int main(void){
   OCR0A = 160;         // 20ms period time
   OCR0B = 8;           // 1ms -> 0° (left) position
   // 12 = center, 16 = right
-
+  for(;;){}
   return 0;
 }
